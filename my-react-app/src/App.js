@@ -1,6 +1,5 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Counnter from './component/Counter';
 import { BrowserRouter, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
