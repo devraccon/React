@@ -1,9 +1,17 @@
+import { useEffect } from "react";
+import rootStore from "../store";
 
-function LoginPage(){
+function LoginPage({history}){
    
     function joinHandler(){
-        console.log("JoinHandler click ... ");
+        const {userData} = rootStore();
+        userData.setAccessToken("aaaaaaaa");
+        history.push("/counter");
     }
+
+    useEffect(()=>{
+        console.log("isLogin ");
+    })
     return(
         <div>
             <span>Login Page</span>
