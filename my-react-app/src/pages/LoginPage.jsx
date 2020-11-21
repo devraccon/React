@@ -1,16 +1,34 @@
+import Axios from "axios";
 import { useEffect } from "react";
-import rootStore from "../store";
+import axios from "axios";
 
 function LoginPage({history}){
-   
+    
     function joinHandler(){
-        const {userData} = rootStore();
-        userData.setAccessToken("aaaaaaaa");
-        history.push("/counter");
+        try{
+            let data = {email: "kang3351@naver.com"};
+            axios.post("/auth/login" ,JSON.stringify(data), {
+                headers: {
+                  "Content-Type": `application/json`,
+                }})
+            .then(res =>{
+                console.log("res.data.accessToken : " + res.data);
+                localStorage.setItem(res.data);
+                history.push("/");
+            })
+            .catch(ex=>{
+                console.log("login requset fail : " + ex);
+            })
+            .finally(()=>{console.log("login request end")});
+        }catch(e){
+            console.log(e);
+        }
+        
+        
     }
 
     useEffect(()=>{
-        console.log("isLogin ");
+        console.log("LoginPage render ... ");
     })
     return(
         <div>

@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <AuthRoute exact path="/" component={HomePage} />
+        <AuthRoute exact isLogin={false} path="/" component={HomePage} />
         <Route path="/login" component={LoginPage} />
-        <AuthRoute path="/counter" component={Counnter} />
+        <AuthRoute path="/counter" isLogin={false} component={Counnter} />
       </BrowserRouter>
     </div>
   );

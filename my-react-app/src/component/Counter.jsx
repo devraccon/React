@@ -1,16 +1,22 @@
+import { useEffect, useState } from "react";
 import rootStore from "../store";
 
 function Counnter(){
-    let number = 0;
-    const {userData} = rootStore();
+    const [number , setNumber]  =  useState(0);
+    
     function addNumber(e){
-        number++;
+        setNumber(number + 1);
         console.log(number);
     }
+
+    useEffect(()=>{
+        console.log("Counnter render isLogin : " );
+    });
+
     
     return(
         <div>
-            <span>{userData.getAccessToken()}</span>
+            <span>{number}</span>
             <button type="button" onClick={addNumber}>Add Number</button>
         </div>
     )
