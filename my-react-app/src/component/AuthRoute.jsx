@@ -1,5 +1,4 @@
 
-import { useObserver } from 'mobx-react';
 import { useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
@@ -7,11 +6,11 @@ function AuthRoute({isLogin , component : Component , render, ...rest }){
 
     
     useEffect(()=>{
-      console.log("AuthRoute render isLogin : " + isLogin);
+      console.log("AuthRoute render path : " + rest.path + " isLogin : " + isLogin);
     })
 
     
-    return useObserver(() => (
+    return (
          <Route
           {...rest}
           render={(props) =>
@@ -29,6 +28,5 @@ function AuthRoute({isLogin , component : Component , render, ...rest }){
           }
         />
       )
-  );
 }
 export default AuthRoute;
