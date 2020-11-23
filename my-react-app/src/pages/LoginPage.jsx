@@ -8,7 +8,7 @@ function LoginPage(props){
             let data = {email: "devracoon@naver.com"};
             axios.post("/auth/login" ,JSON.stringify(data), {
                 headers: {
-                  "Content-Type": `application/json`,
+                  "Content-Type": 'application/json',
                 }})
             .then(res =>{
                 console.log("res.data.accessToken : " + res.data);
@@ -22,9 +22,7 @@ function LoginPage(props){
             .finally(()=>{console.log("login request end")});
         }catch(e){
             console.log(e);
-        }
-        
-        
+        }  
     }
 
     useEffect(()=>{
